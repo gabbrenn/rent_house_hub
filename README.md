@@ -9,7 +9,6 @@ Welcome to **Rent House Hub**, my final project for the ALX specialization. This
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
