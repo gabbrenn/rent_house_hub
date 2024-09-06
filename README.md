@@ -72,12 +72,12 @@ After successfully installing and running the project, you can:
    - Make a booking and payment for a rental property.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 ## Contact
 If you have any questions or feedback, feel free to reach out to me:
 
 **Email:** gabvladimirbrenn@gmail.com<br>
 **LinkedIn:** [ganiro-vladimir-brenn](https://www.linkedin.com/in/gabiro-vladimir-brenn/)<br>
-**GitHub:** @gabbrenn
+**GitHub:** [@gabbrenn](https://github.com/gabbrenn)
 
