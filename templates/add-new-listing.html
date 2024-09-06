@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'sidebar.html' %}
+<!-- Main Content -->
+<div class="main-container">
+    <h2>Add New Listing</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="col-md-6">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" name="price" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" name="location" required>
+            </div>
+            <div class="col-md-6">
+                <label for="amenities" class="form-label">Amenities</label>
+                <input type="text" class="form-control" id="amenities" name="amenities" placeholder="Separate by commas" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="property_type" class="form-label">Property Type</label>
+            <select id="property_type" name="property_type" class="form-control" required>
+                <option value="">Select Property Type</option>
+                {% for key, value in property_type_choices %}
+                    <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="images" class="form-label">Images</label>
+            <input type="file" class="form-control" id="images" name="images" multiple required>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+{% endblock %}

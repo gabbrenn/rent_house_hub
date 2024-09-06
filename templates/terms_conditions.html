@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block title %}Terms & Conditions - HouseRentHub{% endblock %}
+{% load static %}
+{% block content %}
+<style>
+    .terms-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+    }
+
+    .terms-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #007bff;
+    }
+
+    .terms-header p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: #666;
+    }
+
+    .terms-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .terms-section h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .terms-section p,
+    .terms-section ul li {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.7;
+    }
+
+    .terms-section ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+    }
+
+    .terms-footer {
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+    .terms-footer a {
+        font-size: 1.1rem;
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+    }
+
+    .terms-footer a:hover {
+        color: #0056b3;
+    }
+</style>
+
+<!-- Terms & Conditions Content -->
+<div class="terms-container mt-3">
+    <header class="terms-header text-center">
+        <h1>Terms & Conditions</h1>
+        <p>Welcome to HouseRentHub. Please read these terms and conditions carefully before using our services.</p>
+    </header>
+
+    <!-- Section 1: Introduction -->
+    <section class="terms-section">
+        <h2>1. Introduction</h2>
+        <p>By accessing or using our website, you agree to be bound by these terms and conditions. If you do not agree with any part of these terms, you must not use our services.</p>
+    </section>
+
+    <!-- Section 2: User Responsibilities -->
+    <section class="terms-section">
+        <h2>2. User Responsibilities</h2>
+        <p>As a user of HouseRentHub, you agree to the following:</p>
+        <ul>
+            <li>Provide accurate and up-to-date information during registration.</li>
+            <li>Respect the privacy and rights of other users.</li>
+            <li>Use our platform in a lawful manner, refraining from any actions that could harm others or the platform.</li>
+        </ul>
+    </section>
+
+    <!-- Section 3: Property Listings -->
+    <section class="terms-section">
+        <h2>3. Property Listings</h2>
+        <p>Users who list properties on HouseRentHub agree to the following terms:</p>
+        <ul>
+            <li>Ensure all property information provided is accurate and truthful.</li>
+            <li>Comply with all local regulations and laws regarding property rentals.</li>
+            <li>Update or remove listings as necessary to maintain accurate information.</li>
+        </ul>
+    </section>
+
+    <!-- Section 4: Limitation of Liability -->
+    <section class="terms-section">
+        <h2>4. Limitation of Liability</h2>
+        <p>HouseRentHub is not responsible for any damages, losses, or disputes that may arise between users. We provide a platform for connecting renters and homeowners, but we do not guarantee the accuracy or reliability of any listings or interactions.</p>
+    </section>
+
+    <!-- Section 5: Termination of Use -->
+    <section class="terms-section">
+        <h2>5. Termination of Use</h2>
+        <p>We reserve the right to terminate or suspend your access to HouseRentHub at any time, without notice, for any violation of these terms or any unlawful activity.</p>
+    </section>
+
+    <!-- Section 6: Changes to Terms -->
+    <section class="terms-section">
+        <h2>6. Changes to Terms</h2>
+        <p>We may update these terms and conditions from time to time. Any changes will be posted on this page, and your continued use of the platform after such changes indicates your acceptance of the new terms.</p>
+    </section>
+
+    <!-- Section 7: Contact Information -->
+    <section class="terms-section">
+        <h2>7. Contact Information</h2>
+        <p>If you have any questions or concerns about these terms and conditions, please contact us at <a href="mailto:houserenthub@gmail.com">support@houserenthub.com</a>.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="terms-footer">
+        <p>&copy; 2024 HouseRentHub. All rights reserved.</p>
+        <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+    </footer>
+</div>
+{% endblock %}

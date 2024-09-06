@@ -1,0 +1,9 @@
+<!-- Sidebar -->
+<div class="sidebar">
+    <h3>Dashboard</h3>
+    <nav class="nav flex-column">
+        <a class="nav-link {% if request.path == '/my-listings/' %}active{% endif %}" href="{% url 'my_listings' %}">My Listings</a>
+        <a class="nav-link {% if request.path == '/add_new_listing/' %}active{% endif %}" href="{% url 'add-new-listing' %}">Add New Listing</a>
+        <a class="nav-link {% if request.path == '/profile-settings/' %}active{% endif %}" href="{% url 'profile_settings' %}">Profile Settings</a>
+    </nav>
+</div>

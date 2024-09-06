@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block title %}Privacy Policy - HouseRentHub{% endblock %}
+{% load static %}
+{% block content %}
+<style>
+    .privacy-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+    }
+
+    .privacy-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #007bff;
+    }
+
+    .privacy-header p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: #666;
+    }
+
+    .privacy-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .privacy-section h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .privacy-section p,
+    .privacy-section ul li {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.7;
+    }
+
+    .privacy-section ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+    }
+
+    .privacy-footer {
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+    .privacy-footer a {
+        font-size: 1.1rem;
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+    }
+
+    .privacy-footer a:hover {
+        color: #0056b3;
+    }
+</style>
+
+<!-- Privacy Policy Content -->
+<div class="privacy-container mt-3">
+    <header class="privacy-header text-center">
+        <h1>Privacy Policy</h1>
+        <p>Your privacy is important to us. This policy explains how we handle your personal data.</p>
+    </header>
+
+    <!-- Section 1: Data Collection -->
+    <section class="privacy-section">
+        <h2>1. Data Collection</h2>
+        <p>We collect personal information that you provide to us directly, such as when you register for an account, post a listing, or contact us for support.</p>
+        <ul>
+            <li>Personal identification information (name, email address, phone number, etc.)</li>
+            <li>Property details and descriptions</li>
+            <li>Communications with us (emails, messages)</li>
+        </ul>
+    </section>
+
+    <!-- Section 2: Data Use -->
+    <section class="privacy-section">
+        <h2>2. Data Use</h2>
+        <p>We use the information we collect in the following ways:</p>
+        <ul>
+            <li>To provide and maintain our services</li>
+            <li>To communicate with you, including sending updates, newsletters, and promotional materials</li>
+            <li>To improve and personalize your experience on our platform</li>
+            <li>To ensure the security and integrity of our services</li>
+        </ul>
+    </section>
+
+    <!-- Section 3: Data Sharing -->
+    <section class="privacy-section">
+        <h2>3. Data Sharing</h2>
+        <p>We do not sell your personal data. We may share your information with third parties only in the following circumstances:</p>
+        <ul>
+            <li>With service providers who assist us in operating our platform</li>
+            <li>If required by law or to protect our legal rights</li>
+            <li>With your consent or at your direction</li>
+        </ul>
+    </section>
+
+    <!-- Section 4: Data Security -->
+    <section class="privacy-section">
+        <h2>4. Data Security</h2>
+        <p>We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. However, no method of transmission over the internet or method of electronic storage is completely secure, and we cannot guarantee its absolute security.</p>
+    </section>
+
+    <!-- Section 5: Your Rights -->
+    <section class="privacy-section">
+        <h2>5. Your Rights</h2>
+        <p>You have the following rights regarding your personal information:</p>
+        <ul>
+            <li>Access: You can request a copy of your personal data that we hold.</li>
+            <li>Correction: You can request that we correct any inaccuracies in your personal data.</li>
+            <li>Deletion: You can request that we delete your personal data under certain circumstances.</li>
+            <li>Objection: You can object to the processing of your data in certain situations.</li>
+        </ul>
+    </section>
+
+    <!-- Section 6: Changes to this Policy -->
+    <section class="privacy-section">
+        <h2>6. Changes to this Policy</h2>
+        <p>We may update this privacy policy from time to time. Any changes will be posted on this page, and your continued use of our services after such changes will constitute your acceptance of the revised policy.</p>
+    </section>
+
+    <!-- Section 7: Contact Us -->
+    <section class="privacy-section">
+        <h2>7. Contact Us</h2>
+        <p>If you have any questions or concerns about this privacy policy, please contact us at <a href="mailto:houserenthub@gmail.com.com">support@houserenthub.com</a>.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="privacy-footer">
+        <p>&copy; 2024 HouseRentHub. All rights reserved.</p>
+        <a href="{% url 'terms-conditions' %}">Terms & Conditions</a>
+    </footer>
+</div>
+{% endblock %}

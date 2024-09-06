@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}Edit Listing - HouseRentHub{% endblock %}
+{% block content %}
+{% include 'sidebar.html' %}
+
+<div class="main-container">
+    <h2 class="mb-4">Edit Listing</h2>
+    <div class="card shadow border-0">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" class="form-container">
+                {% csrf_token %}
+                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="title" class="fw-bold">Title</label>
+                        <input type="text" id="title" name="title" class="form-control" value="{{ property.title }}" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="price" class="fw-bold">Price</label>
+                        <input type="number" id="price" name="price" class="form-control" value="{{ property.price }}" required>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="description" class="fw-bold">Description</label>
+                    <textarea id="description" name="description" class="form-control" rows="4" required>{{ property.description }}</textarea>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="location" class="fw-bold">Location</label>
+                        <input type="text" id="location" name="location" class="form-control" value="{{ property.location }}" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="amenities" class="fw-bold">Amenities (comma-separated)</label>
+                        <input type="text" id="amenities" name="amenities" class="form-control" value="{{ property.amenities }}" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="property_type" class="fw-bold">Property Type</label>
+                    <select id="property_type" name="property_type" class="form-control" required>
+                        <option value="">Select Property Type</option>
+                        {% for key, value in property_type_choices %}
+                            <option value="{{ key }}" {% if property.property_type == key %}selected{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="images" class="fw-bold">Upload New Images (optional)</label>
+                    <input type="file" id="images" name="images" class="form-control-file" multiple>
+                </div>
+        
+                <button type="submit" class="btn btn-primary">Update Listing</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    {% comment %} .main-container {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    } {% endcomment %}
+
+    {% comment %} .form-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    } {% endcomment %}
+
+    .form-row {
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+</style>
+{% endblock %}

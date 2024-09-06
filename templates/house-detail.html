@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% block title %}House Details - HouseRentHub{% endblock %}
+{% load static %}
+{% block content %}
+<!-- Main Content -->
+<div class="container property-info">
+    <div class="row">
+        <!-- Main Image and Thumbnails -->
+        <div class="col-md-8">
+            <div class="main-image">
+                <!-- Dynamic Main Image -->
+                <img id="mainImage" src="{{ property.propertyimage_set.first.image_path.url }}" alt="Main image of {{ property.title }}" class="img-fluid">
+            </div>
+            <div class="thumbnail-images row mt-2">
+                {% for image in property.propertyimage_set.all %}
+                    <div class="col-4 mb-2">
+                        <img src="{{ image.image_path.url }}" alt="Thumbnail {{ forloop.counter }}" data-image="{{ image.image_path.url }}" class="img-thumbnail">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Property Information -->
+        <div class="col-md-4">
+            <h1 class="property-title">{{ property.title }}</h1>
+            <p class="property-price">${{ property.price }}/month</p>
+            <p><strong>Description:</strong> {{ property.description }}</p>
+            <p><strong>Amenities:</strong></p>
+            <ul>
+                {% for amenity in amenities_list %}
+                    <li>{{ amenity }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <p><strong>Location:</strong> {{ property.location }}</p>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="container py-5">
+    {% if request.user != property.user %}
+        <h2>Contact the Owner</h2>
+
+        {% if email_sent %}
+            <div class="alert alert-success" role="alert">
+                Your message has been sent successfully.
+            </div>
+        {% elif email_failed %}
+            <div class="alert alert-danger" role="alert">
+                There was an error sending your message. Please try again later.
+            </div>
+        {% endif %}
+
+        <form class="contact-form" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="contact_form" value="true">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <textarea name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+        </form>
+        
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            You are viewing your own property listing.
+        </div>
+    {% endif %}
+</div>
+
+
+<!-- Reviews Section -->
+<div class="container py-5">
+    <h2>Reviews</h2>
+    {% if messages %}
+    <div class="container">
+        {% for message in messages %}
+            <div class="alert alert-info" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+    {% if reviews %}
+        <div class="row">
+            {% for review in reviews %}
+                <div class="col-md-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ review.user.username }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ review.rating }} stars</h6>
+                            <p class="card-text">{{ review.comment }}</p>
+                            <p class="card-text"><small class="text-muted">Posted on {{ review.created_at }}</small></p>
+                            
+                            <!-- Review Replies -->
+                            {% if review.replies.all %}
+                                <div class="mt-3">
+                                    <h6>Replies:</h6>
+                                    {% for reply in review.replies.all %}
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <p class="card-text">{{ reply.reply_content }}</p>
+                                                <p class="card-text"><small class="text-muted">Replied by {{ reply.user.username }} on {{ reply.created_at }}</small></p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                            <!-- Reply Form -->
+                            {% if request.user == property.user %}
+                                <form method="POST" action="{% url 'house_detail' property.id %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="review_id" value="{{ review.id }}">
+                                    <div class="mb-3">
+                                        <label for="reply_content" class="form-label">Your Reply</label>
+                                        <textarea id="reply_content" name="reply_content" class="form-control" rows="4" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Reply</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No reviews yet. Be the first to review this property!</p>
+    {% endif %}
+    
+    {% if request.user.is_authenticated and request.user != property.user %}
+        <h3 class="mt-5">Leave a Review</h3>
+        <form method="POST" action="{% url 'submit_review' property.id %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="rating" class="form-label">Rating</label>
+                <select class="form-select" id="rating" name="rating" required>
+                    <option value="" disabled selected>Select rating</option>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="3">3 - Good</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="1">1 - Poor</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Comment</label>
+                <textarea id="comment" name="comment" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+    {% elif request.user == property.user %}
+        <p class="mt-5">You cannot review your own property.</p>
+    {% else %}
+        <p class="mt-5">Please <a href="{% url 'signin' %}">sign in</a> to leave a review.</p>
+    {% endif %}
+</div>
+
+
+<script>
+    document.querySelectorAll('.thumbnail-images img').forEach(function(thumbnail) {
+        thumbnail.addEventListener('click', function() {
+            var mainImage = document.getElementById("mainImage");
+            mainImage.src = thumbnail.getAttribute('data-image');
+        });
+    });
+</script>
+{% endblock %}

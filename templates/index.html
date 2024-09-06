@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %}HouseRentHub{% endblock %}
+{% load static %}
+{% block content %}
+<div class="hero">
+    <div class="container">
+        <h1 class="display-4 fw-bold">World's Largest House Property Site</h1>
+        <p class="lead mb-5">Find houses without commission and no more wasting time.</p>
+        <div class="filter-section mb-4">
+            <form method="get" action="{% url 'house_list' %}">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <input class="form-control" list="location" id="location" name="location" placeholder="Location...">
+                        <datalist id="location">
+                            <option value="Kigali">
+                            <option value="Musanze">
+                            <option value="Kampala">
+                            <option value="Bujumbura">
+                        </datalist>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" class="form-control" name="min_price" placeholder="Min Price">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" class="form-control" name="max_price" placeholder="Max Price">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" name="property_type" aria-label="Property Type">
+                            <option selected disabled>Property Type</option>
+                            {% for key, value in property_type_choices %}
+                                <option value="{{ key }}">{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-custom w-100">Filter</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-light text-center py-5">
+    <h2>Are you a Property Owner?</h2>
+    <a href="{% url 'add-new-listing' %}" class="btn btn-warning mt-3">Post Free Property</a>
+</div>
+
+<div class="container text-center py-5">
+    <h2>Why Use NoBroker</h2>
+    <div class="row features mt-4">
+        <div class="col-md-3 col-sm-6">
+            <div class="icon mb-2">🚫</div>
+            <h5>Avoid Brokers</h5>
+            <p>We directly connect you to verified owners to save brokerage</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="icon mb-2">📜</div>
+            <h5>Free Listing</h5>
+            <p>Easy listing process.</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="icon mb-2">🏠</div>
+            <h5>Shortlist without Visit</h5>
+            <p>Extensive information makes it easy</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="icon mb-2">📝</div>
+            <h5>Rental Agreement</h5>
+            <p>Assistance in creating Rental agreement & Paper work</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-light text-center py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Find Property</h5>
+            <p>Select from thousands of options, without brokerage.</p>
+            <a href="{% url 'house_list' %}" class="btn btn-warning">Find Now</a>
+        </div>
+        <div class="col-md-6">
+            <h5>List Your Property</h5>
+            <p>For free. Without any brokerage.</p>
+            <a href="{% url 'my_listings' %}" class="btn btn-warning">Free Posting</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

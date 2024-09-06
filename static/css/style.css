@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+} */
+.sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: calc(100vh - 56px); /* Full height minus navbar height */
+    position: fixed;
+    top: 56px; /* Height of the navbar */
+    left: 0;
+    overflow-y: auto;
+    z-index: 1000;
+}
+.main-container {
+    margin-left: 250px; /* Width of the sidebar */
+    /* margin-top: 56px; Height of the navbar */
+    /*padding: 20px; */
+    flex: 1;
+}
+.sidebar .nav-link {
+    color: #333;
+}
+.sidebar .nav-link.active {
+    font-weight: bold;
+    color: #ff5722;
+}
+.carousel-item img {
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+    object-fit: cover;
+}
+.hero {
+    background-image: url('../img/house.jpg'); /* Background image for the hero section */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+.cta-button {
+    margin-top: 20px;
+}
+.features .icon {
+    font-size: 2rem;
+    color: #ff5722;
+}
+.navbar-nav a {
+    color: #000 !important;
+}
+.btn-custom {
+    background-color: #ff5722;
+    color: white;
+}
+.btn-custom:hover {
+    background-color: #e64a19;
+}
+.filter-section {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.property-info {
+    margin-top: 30px;
+}
+.property-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.property-price {
+    color: #ff5722;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.contact-form input, .contact-form textarea {
+    margin-bottom: 10px;
+}
+.contact-form button {
+    background-color: #ff5722;
+    color: white;
+}
+.contact-form button:hover {
+    background-color: #e64a19;
+}
+.main-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+/* .thumbnail-images img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 10px;
+} */
+.thumbnail-images img:hover {
+    opacity: 0.7;
+}
+.thumbnail-images {
+    margin-top: 10px;
+}
+.thumbnail-images img {
+    width: 100%; 
+    height: 100px; 
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.thumbnail-images .col-4 {
+    display: flex;
+    align-items: center; /* Center the thumbnail vertically */
+    justify-content: center; /* Center the thumbnail horizontally */
+    height: 100px; /* Set the same height for all thumbnail containers */
+    overflow: hidden; /* Ensure the image doesn't overflow outside the container */
+}

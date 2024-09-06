@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}My Listings - HouseRentHub{% endblock %}
+{% load static %}
+{% block content %}
+{% include 'sidebar.html' %}
+
+<!-- Main Content -->
+<div class="main-container py-5">
+    <h2 class="mb-4">My Listings</h2>
+    <div class="row">
+        {% for property in properties %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light">
+                    <!-- Carousel -->
+                    <div id="carouselExampleCaptions{{ forloop.counter }}" class="carousel slide">
+                        <div class="carousel-inner">
+                            {% for image in property.propertyimage_set.all %}
+                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                    <img src="{{ image.image_path.url }}" class="d-block w-100" alt="{{ property.title }} Image {{ forloop.counter }}">
+                                </div>
+                            {% empty %}
+                                <div class="carousel-item active">
+                                    <img src="{% static 'img/placeholder.png' %}" class="d-block w-100" alt="Default Image">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions{{ forloop.counter }}" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions{{ forloop.counter }}" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ property.title }}</h5>
+                        <p class="card-text text-muted"><strong>Location:</strong> {{ property.location }}</p>
+                        <p class="card-text text-muted"><strong>Price:</strong> ${{ property.price }}</p>
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'house_detail' property.id %}" class="btn btn-primary">View Details</a>
+                            <div class="btn-group" role="group" aria-label="Property Actions">
+                                <a href="{% url 'edit_listing' property.id %}" class="btn btn-warning">Edit</a>
+                                <a href="{% url 'delete_listing' property.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this listing?');">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info" role="alert">
+                    You have not listed any properties yet.
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

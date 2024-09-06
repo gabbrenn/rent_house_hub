@@ -1,0 +1,48 @@
+/* Unique styling for the About Us page */
+.about-us-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-us-header h1 {
+    font-size: 3rem;
+    color: #333;
+}
+
+.about-us-header p {
+    font-size: 1.25rem;
+    color: #666;
+}
+
+.about-us-story, .about-us-mission, .about-us-team, .about-us-culture, .about-us-cta {
+    padding: 2rem 0;
+}
+
+.about-us-story h2, .about-us-mission h2, .about-us-team h2, .about-us-culture h2, .about-us-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.about-us-team-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.blockquote {
+    border-left: 5px solid #007bff;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    color: #555;
+}
+
+.blockquote footer {
+    font-size: 0.875rem;
+    color: #777;
+}
+
+.about-us-cta a.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}

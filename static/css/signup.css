@@ -1,0 +1,39 @@
+/* style.css */
+
+.custom-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.custom-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-form .form-control {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.custom-form .form-control:focus {
+    border-color: #0056b3;
+    box-shadow: none;
+}
+
+.custom-form .form-check-input {
+    margin-top: 8px;
+}
+
+.custom-form .btn-warning {
+    background-color: #ffc107;
+    border: none;
+    border-radius: 8px;
+}
+
+.custom-form .btn-warning:hover {
+    background-color: #e0a800;
+}

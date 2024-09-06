@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}House List - HouseRentHub{% endblock %}
+{% load static %}
+{% block content %}
+<style>
+    .listing-card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+    .listing-image {
+        height: 200px;
+        object-fit: cover;
+    }
+    .listing-details {
+        padding: 20px;
+    }
+    .listing-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    .listing-price {
+        color: #ff5722;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .btn-custom {
+        background-color: #ff5722;
+        color: white;
+    }
+    .btn-custom:hover {
+        background-color: #e64a19;
+    }
+</style>
+<div class="container py-5">
+    
+    <div class="filter-section mb-4">
+        <form method="get" action="{% url 'house_list' %}">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <input class="form-control" list="location" id="location" name="location" placeholder="Location...">
+                    <datalist id="location">
+                        <option value="Kigali">
+                        <option value="Musanze">
+                        <option value="Kampala">
+                        <option value="Bujumbura">
+                    </datalist>
+                </div>
+                <div class="col-md-2">
+                    <input type="number" class="form-control" name="min_price" placeholder="Min Price" value="{{ request.GET.min_price }}">
+                </div>
+                <div class="col-md-2">
+                    <input type="number" class="form-control" name="max_price" placeholder="Max Price" value="{{ request.GET.max_price }}">
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" name="property_type" aria-label="Property Type">
+                        <option selected disabled>Property Type</option>
+                        {% for key, value in property_type_choices %}
+                            <option value="{{ key }}" {% if request.GET.property_type == key %}selected{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-custom w-100">Filter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <h1 class="text-center mb-5">Available Houses for Rent</h1>
+    <div class="row">
+        {% for house in houses %}
+        <div class="col-md-4">
+            <div class="card listing-card">
+                <!-- Conditional check for image availability -->
+                {% if house.propertyimage_set.first %}
+                <img src="{{ house.propertyimage_set.first.image_path.url }}" class="card-img-top listing-image" alt="{{ house.title }}">
+                {% else %}
+                <img src="{% static 'img/placeholder.png' %}" class="card-img-top listing-image" alt="No image available">
+                {% endif %}
+                
+                <div class="card-body listing-details">
+                    <h5 class="card-title listing-title">{{ house.title }}</h5>
+                    <p class="card-text">{{ house.description|truncatewords:15 }}</p>
+                    <p class="listing-price">${{ house.price }}/month</p>
+                    <a href="{% url 'house_detail' house.id %}" class="btn btn-custom">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

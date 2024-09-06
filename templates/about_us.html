@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block title %}About Us - HouseRentHub{% endblock %}
+{% load static %}
+{% block content %}
+<style>
+    .about-us-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        color: #333;
+        background-color: #f8f9fa;
+        border-radius: 15px;
+    }
+
+    .about-us-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #007bff;
+    }
+
+    .about-us-header p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #555;
+    }
+
+    .about-us-section {
+        padding: 2rem 0;
+    }
+
+    .about-us-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .about-us-section p {
+        font-size: 1.1rem;
+        color: #666;
+    }
+
+    .about-us-team-img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid #007bff;
+    }
+
+    .team-member h4 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #007bff;
+    }
+
+    .team-member p {
+        color: #666;
+    }
+
+    .blockquote {
+        border-left: 5px solid #007bff;
+        padding-left: 1.5rem;
+        font-style: italic;
+        margin-top: 2rem;
+        color: #555;
+    }
+
+    .blockquote footer {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    .about-us-cta {
+        margin-top: 2rem;
+    }
+
+    .about-us-cta a.btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 0.75rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 30px;
+    }
+</style>
+
+<!-- About Us Page Content -->
+<div class="about-us-container mt-3">
+    <header class="about-us-header text-center">
+        <h1>About Us</h1>
+        <p>Building a Better Future, One Home at a Time</p>
+    </header>
+
+    <!-- Our Story -->
+    <section class="about-us-section mb-5">
+        <h2>Our Story</h2>
+        <p>HouseRentHub started with a vision to simplify the home rental process for everyone. We aim to connect homeowners with renters in a way that’s seamless, transparent, and secure. Over the years, we've grown into a trusted platform where thousands of people find their perfect home.</p>
+    </section>
+
+    <!-- Mission and Values -->
+    <section class="about-us-section mb-5">
+        <h2>Our Mission & Values</h2>
+        <p>Our mission is to revolutionize the rental industry by offering an easy-to-use platform that empowers both homeowners and renters. We value integrity, customer satisfaction, and continuous innovation.</p>
+    </section>
+
+    <!-- Meet the Team -->
+    <section class="about-us-section mb-5">
+        <h2>Meet the Team</h2>
+        <div class="row text-center">
+            <div class="col-md-4 team-member">
+                <img src="{% static 'img/me.jpg' %}" class="about-us-team-img mb-3" alt="Jane Doe">
+                <h4>Gabiro Vladimir Brenn</h4>
+                <p>CEO & Founder</p>
+            </div>
+            {% comment %} <div class="col-md-4 team-member">
+                <img src="{% static 'img/team_member2.jpg' %}" class="about-us-team-img mb-3" alt="John Smith">
+                <h4>John Smith</h4>
+                <p>CTO</p>
+            </div>
+            <div class="col-md-4 team-member">
+                <img src="{% static 'img/team_member3.jpg' %}" class="about-us-team-img mb-3" alt="Emily Johnson">
+                <h4>Emily Johnson</h4>
+                <p>COO</p>
+            </div> {% endcomment %}
+        </div>
+    </section>
+
+    <!-- Company Culture -->
+    <section class="about-us-section mb-5">
+        <h2>Our Culture</h2>
+        <p>At HouseRentHub, we believe in fostering a culture of collaboration, respect, and innovation. Our team works together to bring the best out of each other and to create a service that truly benefits our users.</p>
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">"The culture at HouseRentHub is truly exceptional. Everyone is passionate about their work and dedicated to making a difference."</p>
+            <footer class="blockquote-footer mt-3">Gabiro Vladimir Brenn, CEO</footer>
+        </blockquote>
+    </section>
+
+    <!-- Call to Action -->
+    {% comment %} <section class="about-us-section text-center about-us-cta">
+        <h2>Connect with Us</h2>
+        <p>We’re here to help you every step of the way. Whether you’re a homeowner or a renter, reach out to us for assistance.</p>
+        <a href="{% url 'home' %}" class="btn btn-primary">Get in Touch</a>
+    </section> {% endcomment %}
+</div>
+{% endblock %}
