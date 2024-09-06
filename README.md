@@ -45,7 +45,9 @@ To run this project locally, follow these steps:
 
 2. Navigate to the project directory:
 3. Install dependencies (if using Python, for example):
+   ```bash
    pip install -r requirements.txt
+
 4. Set up the database:
 5. Run the development server:
 6. Access the application at http://localhost:8000.
