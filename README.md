@@ -53,7 +53,7 @@ To run this project locally, follow these steps:
 ## Contact
 If you have any questions or feedback, feel free to reach out to me:
 
-Email: gabvladimirbrenn@gmail.com
-LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/gabiro-vladimir-brenn/)
-GitHub: @gabbrenn
+**Email:** gabvladimirbrenn@gmail.com<br>
+**LinkedIn:** [ganiro-vladimir-brenn](https://www.linkedin.com/in/gabiro-vladimir-brenn/)<br>
+**GitHub:** @gabbrenn
 
