@@ -9,7 +9,6 @@ Welcome to **Rent House Hub**, my final project for the ALX specialization. This
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -24,7 +23,7 @@ The platform focuses on providing a simple, user-friendly interface while offeri
 - **User Registration and Authentication:** Secure sign-up and login functionality.
 - **Property Listings:** Property owners can add, edit, and manage listings.
 - **Search & Filters:** Users can search for rental houses based on location, price, and other filters.
-- **Booking & Payments:** Tenants can book houses and make payments online.
+- **Booking:** Tenants can book houses online.
 - **Responsive Design:** The platform is mobile-friendly and works across all devices.
 
 ## Technologies Used
@@ -72,12 +71,12 @@ After successfully installing and running the project, you can:
    - Make a booking and payment for a rental property.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 ## Contact
 If you have any questions or feedback, feel free to reach out to me:
 
 **Email:** gabvladimirbrenn@gmail.com<br>
 **LinkedIn:** [ganiro-vladimir-brenn](https://www.linkedin.com/in/gabiro-vladimir-brenn/)<br>
-**GitHub:** @gabbrenn
+**GitHub:** [@gabbrenn](https://github.com/gabbrenn)
 
