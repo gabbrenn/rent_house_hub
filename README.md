@@ -1,6 +1,6 @@
 # Rent House Hub
 
-Welcome to **Rent House Hub**, my final project for the ALX specialization. This project is a comprehensive solution designed to streamline the process of renting houses, showcasing my skills in full-stack development.
+Welcome to **Rent House Hub**, my final project for the ALX specialization. This project is a comprehensive solution designed to streamline the process of renting houses, showcasing my skills in full-stack development. [www.renthousehub.com](https://rent-house-hub.onrender.com/)
 
 ## Table of Contents
 
